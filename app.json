@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/invest/invest",
+    "pages/motion/motion"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#fff",
+    "selectedColor": "#fff",
+    "backgroundColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/invest/invest",
+        "text": "投资",
+        "iconPath": "image/invest.png",
+        "selectedIconPath": "image/invest.png"
+      },
+      {
+        "pagePath": "pages/motion/motion",
+        "text": "运动",
+        "iconPath": "image/motion.png",
+        "selectedIconPath": "image/motion.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

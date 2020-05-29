@@ -1,0 +1,3 @@
+<view class="container">
+<calendar selected="{{selected}}"  bindgetdate="bindgetdate" ></calendar>  
+</view>

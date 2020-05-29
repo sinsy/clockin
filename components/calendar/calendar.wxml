@@ -1,0 +1,9 @@
+<!-- 组件模板 -->
+<view class="container">
+  <view class="header">
+    <view wx:for="{{date}}">{{item}}</view>
+  </view>
+    <view class="header">
+    <view wx:for="{{dateArr}}">{{item}}</view>
+  </view>
+</view>
