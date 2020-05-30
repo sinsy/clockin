@@ -1,14 +1,14 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/invest/invest",
-    "pages/motion/motion"
+    "pages/motion/motion",
+    "pages/index/index",
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "巴菲特v1.0",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

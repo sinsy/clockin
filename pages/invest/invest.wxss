@@ -1,1 +1,39 @@
 /* pages/invest/index.wxml.wxss */
+
+page {
+  height: 100%;
+}
+
+
+.calendar {
+  height: 800rpx;
+}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 33.33%;
+  color: #777;
+}
+
+.on {
+  color: #52b8f5;
+  border-bottom: 3rpx solid #52b8f5;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-box view {
+  text-align: center;
+}

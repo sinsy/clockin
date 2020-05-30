@@ -1,1 +1,6 @@
-dddd
+/* wxml */
+<view class="classname">
+<text>测试用小玩意儿</text>
+<text>测试用小玩意儿1121</text>
+</view>
+
