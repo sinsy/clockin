@@ -1,16 +1,26 @@
 <view class="swiper-tab">
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">打卡日历</view>
-  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">记录详情</view>
-  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">估值表</view>
+	<view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">打卡日历</view>
+	<view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">记录详情</view>
+	<view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">估值表</view>
 </view>
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
-  <swiper-item>
-    <calendar selected="{{selected}}" bindgetdate="bindgetdate" class="calendar"></calendar>
-  </swiper-item>
-  <swiper-item>
-    <view>金融</view>
-  </swiper-item>
-  <swiper-item>
-    <view>理财</view>
-  </swiper-item>
+	<swiper-item>
+		<calendar selected="{{selected}}" bindgetdate="bindgetdate" class="calendar"></calendar>
+		<view class="invest-data blue">
+			<text class="left">当月定投次数</text>
+			<text class="right"><text class="num">{{investNum}}</text>次</text>
+		</view>
+		<view class="invest-data red">
+			<text class="left">当月定投金额</text>
+			<text class="right"><text class="num">{{investMoney}}</text>元</text>
+		</view>
+	</swiper-item>
+	<swiper-item>
+		<view>
+    
+    </view>
+	</swiper-item>
+	<swiper-item>
+		<view>理财</view>
+	</swiper-item>
 </swiper>

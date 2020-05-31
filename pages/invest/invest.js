@@ -34,6 +34,8 @@ Page({
     currentTab:0,
     winWidth: 0,
     winHeight: 0,
+    investNum: 0,
+    investMoney: 0,
     selected: [{
       date: '2020-5-21'
     }, {
