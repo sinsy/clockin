@@ -14,6 +14,11 @@
 			<text class="left">当月定投金额</text>
 			<text class="right"><text class="num">{{investMoney}}</text>元</text>
 		</view>
+    <view >
+    <button>添加</button>
+        <input class="weui-input" placeholder="金额"/>
+        <input class="weui-input" placeholder="类别"/>
+      </view>
 	</swiper-item>
 	<swiper-item>
 		<view>
