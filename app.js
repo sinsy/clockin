@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
+    investType: [{ name: '股票', value: 'stock' }, { name: '场外基金', value: 'fundout' }, { name: '场内基金', value: 'fundin' }, { name: '债券', value: 'bond' }],//投资类型
+    operationType:[{name:'买入',value:'buy'}, {name:'卖出', value:'sell'}],//操作类型
     userInfo: null
   }
 })

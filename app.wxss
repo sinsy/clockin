@@ -1,1 +1,23 @@
 /**app.wxss**/
+Page {
+  font-size: 32rpx
+}
+.inline-block{
+  display: inline-block;
+}
+.ci-input{
+  border: 1px solid #ddd;
+  border-width: 1px 0;
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+}
+.ic-btn{
+  background: #52b8f5;
+  color: #fff;
+  font-size: 32rpx;
+  padding: 15rpx 30rpx;
+}
+.mb10{
+margin-bottom: 10rpx;
+}

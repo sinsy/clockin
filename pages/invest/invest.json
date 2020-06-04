@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "calendar": "/components/test/calendar"
+    "calendar": "/components/calendar/calendar",
+    "dialog": "/components/dialog/dialog"
   }
 }

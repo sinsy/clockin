@@ -3,12 +3,13 @@
     "pages/invest/invest",
     "pages/motion/motion",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "components/dialog/dialog"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "巴菲特v1.0",
+    "navigationBarTitleText": "小芭芒v1.0",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
