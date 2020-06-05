@@ -47,7 +47,9 @@ Page({
       date: '2020-5-25'
     }],
     modal: {},
+    addRecordShow:{},//添加记录详情
     investType: app.globalData.investType,
+    operationType: app.globalData.operationType,
     investTypeJSON: [
       [{
         name: 'shuanghui',
@@ -56,7 +58,23 @@ Page({
     ],
     addForm: {
       name: ''
-    }
+    },
+    listData: [
+      { "date": "2019/01/01", "time": "9:00", "content": "工作内容1" },
+      { "date": "2019/01/01", "time": "10:30", "content": "工作内容2" },
+      { "date": "2019/01/01", "time": "12:00", "content": "工作内容3" },
+      { "date": "2019/01/01", "time": "2:30", "content": "工作内容4" },
+      { "date": "2019/01/01", "time": "3:30", "content": "工作内容5" },
+      { "date": "2019/01/01", "time": "4:00", "content": "工作内容6" },
+      { "date": "2019/01/01", "time": "5:00", "content": "工作内容7" },
+      { "date": "2019/01/02", "time": "9:00", "content": "工作内容1" },
+      { "date": "2019/01/02", "time": "10:30", "content": "工作内容2" },
+      { "date": "2019/01/02", "time": "12:00", "content": "工作内容3" },
+      { "date": "2019/01/02", "time": "2:30", "content": "工作内容4" },
+      { "date": "2019/01/02", "time": "3:30", "content": "工作内容5" },
+      { "date": "2019/01/02", "time": "4:00", "content": "工作内容6" },
+      { "date": "2019/01/02", "time": "5:00", "content": "工作内容7" }
+    ]
   },
 
   /**
@@ -66,6 +84,24 @@ Page({
   modalOperate: function(res) {
     if (res.detail.res == 'confirm') {
       console.log('confirm')
+      let objModal = {
+        show: true,
+        title: '添加打卡记录',
+        showCancel: true,
+        height: '90%',
+        confirmText: '保存'
+      }
+      this.setData({
+        addRecordShow: objModal
+      })
+    } else if (res.detail.res == 'cancel') {
+      console.log('cancel')
+    }
+  },
+  addRecordOperate: function(res){
+    if (res.detail.res == 'confirm') {
+      console.log('confirm')
+
     } else if (res.detail.res == 'cancel') {
       console.log('cancel')
     }
@@ -87,13 +123,11 @@ Page({
       title: time.year + '年' + time.month + '月' + time.date + '日',
       showCancel: true,
       height: '90%',
-      confirmText: '保存'
+      confirmText: '添加'
     }
     this.setData({
       modal: objModal
     })
-    console.log(time)
-
   },
   //  tab切换逻辑
   swichNav: function(e) {

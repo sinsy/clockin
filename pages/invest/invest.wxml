@@ -1,7 +1,7 @@
 <view class="swiper-tab">
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">打卡日历</view>
-  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">记录详情</view>
-  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">估值表</view>
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">打卡</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">统计</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">估值</view>
 </view>
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
   <swiper-item>
@@ -25,8 +25,24 @@
     <view>理财</view>
   </swiper-item>
 </swiper>
+<!-- 日历详情接口 -->
 <dialog modal="{{modal}}" bindsuccess='modalOperate' catchtouchmove="ture">
-
+  <view class="tableView">
+    <view class="table_header">
+      <view class="th" style="width:10%">操作</view>
+      <view class="th" style="width:90%">内容</view>
+    </view>
+    <!-- <block> 并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。 -->
+    <block wx:for="{{ listData }}" wx:for-item="work" wx:key="key">
+      <view class="table_cell">
+        <view class="td" style="width:10%"><icon type="info"></icon></view>
+        <view class="td" style="width:90%">{{work.date}}</view>
+      </view>
+    </block>
+  </view>
+</dialog>
+<!-- 添加记录接口 -->
+<dialog modal="{{addRecordShow}}" bindsuccess='addRecordOperate' catchtouchmove="ture">
   <view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{investType}}" range-key="name">
       <view class="ci-input mb10">
@@ -39,26 +55,26 @@
       </view>
     </picker>
     <view class="ci-input mb10">
+      <view class="ic-label">操作：</view>
+      <radio-group class='radio-group' bindchange="radioChange">
+        <radio class='ic-radio' style='margin-left: 11px;' wx:for-items="{{operationType}}" wx:key="value" value="{{item.value}}" checked="{{item.checked}}">
+          <text class="loginLab" style='margin-left: 0px;'>{{item.name}}</text>
+        </radio>
+      </radio-group>
+    </view>
+    <view wx:if="investType[index].value==='stock'||investType[index].value==='fundin'">
+      <view class="ci-input mb10">
+        价格：
+        <input class="inline-block" placeholder="" />
+      </view>
+      <view class="ci-input mb10">
+        数量：
+        <input class="inline-block" placeholder="" />
+      </view>
+    </view>
+    <view class="ci-input mb10" wx:else>
       金额：
       <input class="inline-block" placeholder="" />
     </view>
-    <view class="ci-input mb10">
-      操作：
-      <!-- <radio-group class='radio-group' bindchange="radioChange">
-    <radio  class='radio'style='margin-left: 11px;' wx:for-items="{{sexs}}" wx:key="num" value="{{item.num}}" checked="{{item.checked}}">
-    <text class="loginLab" style='margin-left: 0px;'>{{item.value}}</text>
-    </radio>
-</radio-group> -->
-
-          <!-- <picker bindchange="investNameChange" value="{{investName}}" range="{{opertionType[index]}}" range-key="name">
-      <view class="ci-input mb10">
-        名字：{{investTypeJSON[index][investName].name}}
-      </view> -->
-    </picker>
-      <input class="inline-block" placeholder="" />
-    </view>
-
-    <button class="ic-btn">添加</button>
-
   </view>
 </dialog>

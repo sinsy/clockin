@@ -62,7 +62,7 @@ Component({
      * 确定按钮事件
      */
     modalConfirm() {
-      this.modalShowChange();
+      // this.modalShowChange();
       this.triggerEvent('success', {
         res: 'confirm'
       })

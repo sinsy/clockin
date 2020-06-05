@@ -21,3 +21,54 @@ Page {
 .mb10{
 margin-bottom: 10rpx;
 }
+.radio-group{
+  display: flex;
+}
+.ic-radio{
+  display: inline-block;
+  min-width: 150rpx;
+}
+.ic-label{
+  width: 100rpx;
+}
+
+.tableView{
+  border:1px solid #ddd;
+  border-right:0;
+  border-bottom: 0;
+  width: 100%;
+}
+/* 表头 */
+.table_header{
+  display: flex;
+  justify-content: space-between; /* 项目位于各行之间留有空白的容器内。 */
+  background-color: #52b8f5;
+  width: 100%;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 900;
+} 
+.th{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+/* 表格cell */
+.table_cell{
+  display: flex;
+  justify-content: space-between; /* 项目位于各行之间留有空白的容器内。 */
+  width: 100%;
+  text-align: center;
+}
+.td{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60rpx;
+  border-bottom: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  
+} 
