@@ -1,6 +1,32 @@
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_1867598_4jwfjdi3hvm.eot?t=1591433100488'); /* IE9 */
+  src: url('//at.alicdn.com/t/font_1867598_4jwfjdi3hvm.eot?t=1591433100488#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAK8AAsAAAAABmgAAAJwAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAp0fQE2AiQDCAsGAAQgBYRtBy4boQUR1ZMBZH9KblsGa3Y9UihFuVt9x0nRioXZML5i/NRg+EjQbG5mN5iRx0QQrP1v9uyLa/xVTLI4JA8JKqRGIhMSIVkUC/nB2+/+uw12iFmQWpIGyEFH25xJKRcSFicJ67METO8NP24W+kKoa56EiYBucFM44DzotNCDJjrNNN7/AHgD06p+v2N6GrvlQ0dfAHTCVx89n7h3+ltAG+cDymWMQWsM6gKMAwp0D4wiK6DAYm8Yu+AF3idQqde0WIl2TkTGXhaIp/ruQgpBmYxlyoWiYW9GvGesPLn1Pe+iz8dfL4JEnmLXHNyuXps/cHJ2/iQBQagnoMM5UkwjI04ak3skGD1VedwGkckEPwI7xFH/PFFgl1eDbih7JrmneNRvJiBDgXZMTYpT5LY3afPJ+etKUnH20Xgtp47+qJNpH/X4ReBb/3Y5bV2cyEIrVX9tlfKt9RaAEq1AIPjInJSlgS/7L/KXWIa5Kd+lK/g18oFDmaG07UmmyRuziXbFKTsqVaIU9jb6PtXUch/ZUK7lbtxlejKkyg2TMto0clVmUCg3j0pT1g9XafKMRNYw6Q1AqPcBiVqfkKr3mZTRviHX6j8K9SFUOoufWWU0LL3wCa+MD7h9Qd/rSrhOXsSVO5TP4kp5ZcQ9IXU6Aq7llDMxVkhLbOhe0mMWIKguIQKPYVHU0FBt8M6WYm5Wti2aXmTd67K36PmEV8YH3L6g73UlgvG8qLx/h/JZXKljoC56Qur09OBazgBSrKsGDTzKM91LeswCBNUlRGAWFkUNTfMsg3e21IR4s7KdUWKoztreUP7dCajs2eak7zSuET4093oAAA==') format('woff2'),
+  url('//at.alicdn.com/t/font_1867598_4jwfjdi3hvm.woff?t=1591433100488') format('woff'),
+  url('//at.alicdn.com/t/font_1867598_4jwfjdi3hvm.ttf?t=1591433100488') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('//at.alicdn.com/t/font_1867598_4jwfjdi3hvm.svg?t=1591433100488#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-edit:before {
+  content: "\e609";
+}
+
+
+
 /**app.wxss**/
 Page {
   font-size: 32rpx
+}
+.blue{
+  color: #52b8f5;
 }
 .inline-block{
   display: inline-block;
@@ -42,7 +68,7 @@ margin-bottom: 10rpx;
 .table_header{
   display: flex;
   justify-content: space-between; /* 项目位于各行之间留有空白的容器内。 */
-  background-color: #52b8f5;
+  background-color: rgb(234, 234, 234);
   width: 100%;
   text-align: center;
   font-size: 32rpx;

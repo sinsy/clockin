@@ -93,7 +93,7 @@ Component({
       if (!ischeck) return false;
       let month = canlender.weeks[week][index].month < 10 ? "0" + canlender.weeks[week][index].month : canlender.weeks[week][index].month
       let date = canlender.weeks[week][index].date < 10 ? "0" + canlender.weeks[week][index].date : canlender.weeks[week][index].date
-      this.getWeek(canlender.year + "-" + month + "-" + date);
+      this.getWeek(canlender.year + "-" + month + "-" + date, true);
 
     },
 
@@ -116,7 +116,7 @@ Component({
       this.getWeek(_date);
     },
     // 获取日历内容
-    getWeek(dateData) {
+    getWeek(dateData, flag=false) {
       let selected = this.data.selected
       let a = new Date()
       // console.log("im date ", a, typeof a === 'object')
@@ -192,11 +192,14 @@ Component({
       })
       month = month < 10 ? "0" + month : month
       date = date < 10 ? "0" + date : date
-      this.triggerEvent('getdate', {
-        year,
-        month,
-        date
-      })
+      if(flag){
+        this.triggerEvent('getdate', {
+          year,
+          month,
+          date
+        })
+      }
+
     },
     /**
      * 时间计算

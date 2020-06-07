@@ -1,9 +1,18 @@
+
 <view class="swiper-tab">
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">打卡</view>
-  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">统计</view>
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">统计</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">打卡</view>
   <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">估值</view>
 </view>
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+  <swiper-item>
+  <canvas
+ style="width: 400px; height: 500px;"
+ canvas-id="yueEle"
+ binderror="canvasIdErrorCallback"
+></canvas>
+
+  </swiper-item>
   <swiper-item>
     <calendar selected="{{selected}}" bindgetdate="bindgetdate" class="calendar"></calendar>
     <view class="invest-data blue">
@@ -14,19 +23,13 @@
       <text class="left">当月定投金额</text>
       <text class="right"><text class="num">{{investMoney}}</text>元</text>
     </view>
-
-  </swiper-item>
-  <swiper-item>
-    <view>
-
-    </view>
   </swiper-item>
   <swiper-item>
     <view>理财</view>
   </swiper-item>
 </swiper>
 <!-- 日历详情接口 -->
-<dialog modal="{{modal}}" bindsuccess='modalOperate' catchtouchmove="ture">
+<dialog modal="{{modal}}" bindsuccess='addRecordOperate' catchtouchmove="ture">
   <view class="tableView">
     <view class="table_header">
       <view class="th" style="width:10%">操作</view>
@@ -35,46 +38,46 @@
     <!-- <block> 并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。 -->
     <block wx:for="{{ listData }}" wx:for-item="work" wx:key="key">
       <view class="table_cell">
-        <view class="td" style="width:10%"><icon type="info"></icon></view>
+        <view class="td" style="width:10%"><icon class="iconfont icon-edit blue" bindtap="editRecord"></icon></view>
         <view class="td" style="width:90%">{{work.date}}</view>
       </view>
     </block>
   </view>
 </dialog>
 <!-- 添加记录接口 -->
-<dialog modal="{{addRecordShow}}" bindsuccess='addRecordOperate' catchtouchmove="ture">
+<dialog modal="{{addRecordShow}}" bindsuccess='saveRecordOperate' catchtouchmove="ture">
   <view>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{investType}}" range-key="name">
+    <picker bindchange="bindPickerChange" value="{{recordForm.type}}" range="{{investType}}" range-key="name">
       <view class="ci-input mb10">
-        类型：{{investType[index].name}}
+        类型：{{recordForm.typeName}}
       </view>
     </picker>
-    <picker bindchange="investNameChange" value="{{investName}}" range="{{investTypeJSON[index]}}" range-key="name">
+    <picker bindchange="investNameChange" value="{{recordForm.nameValue}}" range="{{investTypeJSON}}" range-key="name">
       <view class="ci-input mb10">
-        名字：{{investTypeJSON[index][investName].name}}
+        名字：{{recordForm.name}}
       </view>
     </picker>
     <view class="ci-input mb10">
       <view class="ic-label">操作：</view>
       <radio-group class='radio-group' bindchange="radioChange">
-        <radio class='ic-radio' style='margin-left: 11px;' wx:for-items="{{operationType}}" wx:key="value" value="{{item.value}}" checked="{{item.checked}}">
+        <radio class='ic-radio' style='margin-left: 11px;' wx:for-items="{{operationType}}" wx:key="value" value="{{item.value}}" checked="{{item.value==recordForm.operate}}">
           <text class="loginLab" style='margin-left: 0px;'>{{item.name}}</text>
         </radio>
       </radio-group>
     </view>
-    <view wx:if="investType[index].value==='stock'||investType[index].value==='fundin'">
+    <view wx:if="{{recordForm.type=='stock'||recordForm.type=='fundin'}}">
       <view class="ci-input mb10">
         价格：
-        <input class="inline-block" placeholder="" />
+        <input class="inline-block" placeholder="" value="{{recordForm.perPrice}}"/>
       </view>
       <view class="ci-input mb10">
         数量：
-        <input class="inline-block" placeholder="" />
+        <input class="inline-block" placeholder=""  value="{{recordForm.num}}"/>
       </view>
     </view>
-    <view class="ci-input mb10" wx:else>
+    <view class="ci-input mb10"  wx:if="{{recordForm.type=='bond'||recordForm.type=='fundout'}}">
       金额：
-      <input class="inline-block" placeholder="" />
+      <input class="inline-block" placeholder=""  value="{{recordForm.price}}"/>
     </view>
   </view>
 </dialog>
