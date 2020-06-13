@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/invest/invest",
     "pages/motion/motion",
-    "pages/index/index",
     "pages/logs/logs",
     "components/dialog/dialog"
   ],
